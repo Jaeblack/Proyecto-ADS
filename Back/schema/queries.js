@@ -1,4 +1,4 @@
-import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC } from './relations.js';
+import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC, CategoryTC } from './relations.js';
   /**
    *  Getting objects after relations are applied
    */
@@ -21,12 +21,18 @@ import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC } from './relations.
     contractMany: ContractTC.getResolver('findMany'),
     contractById: ContractTC.getResolver('findById'),
   };
+
+  const categoryQueries = {
+    categoryMany: CategoryTC.getResolver('findMany'),
+    categoryById: CategoryTC.getResolver('findById'),
+  };
   
   
   const queries = {
     ...userQueries,
     ...serviceQueries,
     ...contractQueries,
+    ...categoryQueries,
   };
   
   export default queries;
