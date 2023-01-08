@@ -7,9 +7,9 @@ import { ContractTC } from "./models/Contract.js";
  * Worker Relations
  */
 WorkerTC.addRelation("services", {
-  resolver: () => ServiceTC.getResolver("findMany"),
+  resolver: () => ServiceTC.getResolver("findByIds"),
   prepareArgs: {
-    _ids: (worker) => worker.friendsIds,
+    _ids: (worker) => worker.servicesIds,
   },
   projection: { servicesIds: 1 },
 });
@@ -63,6 +63,17 @@ ServiceTC.addRelation("contracts", {
   },
   projection: { _id: 1 }, // required fields from Service object, 1=true
 });
+
+ServiceTC.addRelation("workers", {
+    resolver: () => WorkerTC.getResolver("findMany"),
+    prepareArgs: {
+      // resolver `findMany` has `filter` arg, we may provide mongoose query to it
+      filter: (service) => ({
+        servicesIds: service._id,
+      }),
+    },
+    projection: { _id: 1 }, // required fields from Service object, 1=true
+  });
 
 /**
  * Category Relations

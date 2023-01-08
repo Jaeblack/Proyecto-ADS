@@ -7,6 +7,7 @@ const Contract = Schema(
     workerId: Schema.Types.ObjectId,
     serviceId: Schema.Types.ObjectId,
     requestedAt: Schema.Types.Date,
+    isAccepted: Schema.Types.Boolean,
     isFinished: Schema.Types.Boolean,
     finishedAt: Schema.Types.Date,
     place: Schema.Types.String,
