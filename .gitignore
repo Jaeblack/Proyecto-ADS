@@ -1,3 +1,4 @@
 Back/node_modules
 Keys/
 .DS_Store
+.env
