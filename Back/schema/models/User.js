@@ -8,8 +8,8 @@ import BankCard from './BankCard';
 const DKey = 'type';
 
 const enumUserType = {
-  CLIENTE: 'Cliente',
-  TRABAJADOR: 'Trabajador',
+  CLIENT: 'Client',
+  WORKER: 'Worker',
 };
 
 /**
@@ -20,8 +20,8 @@ const User = new Schema(
     type: {
       type: String,
       required: true,
-      enum: [enumUserType.CLIENTE, enumUserType.TRABAJADOR],
-      description: 'User type Trabajador or Cliente',
+      enum: [enumUserType.CLIENT, enumUserType.WORKER],
+      description: 'User type Worker or Client',
     },
     firstName: String,
     lastName: String,
@@ -37,11 +37,11 @@ const User = new Schema(
 /**
  * Define discriminator schemas
  */
-const Trabajador = new Schema({
+const Worker = new Schema({
   //cars: [Car],
 });
 
-const Cliente = new Schema({
+const Client = new Schema({
   //parkingsIds: [Schema.Types.ObjectId],
 });
 
@@ -55,8 +55,8 @@ export const UserModel = model('User', User);
 /**
  * Create mongoose discriminator models
  */
-export const TrabajadorModel = UserModel.discriminator(enumUserType.TRABAJADOR, Trabajador);
-export const ClienteModel = UserModel.discriminator(enumUserType.CLIENTE, Cliente);
+export const WorkerModel = UserModel.discriminator(enumUserType.WORKER, Worker);
+export const ClientModel = UserModel.discriminator(enumUserType.CLIENT, Client);
 
 const baseOptions = {
   /**
@@ -73,7 +73,7 @@ const baseOptions = {
  */
 export const UserDTC = composeWithMongooseDiscriminators(UserModel, baseOptions);
 
-const driverTypeConverterOptions = {
+const clientTypeConverterOptions = {
   /**
    * We can add custom options for each user type if we want
    * this options will be merged with baseOptions
@@ -83,7 +83,7 @@ const driverTypeConverterOptions = {
    * },
    */
 };
-export const TrabajadorTC = UserDTC.discriminator(TrabajadorModel, driverTypeConverterOptions);
-export const ClienteTC = UserDTC.discriminator(ClienteModel);
+export const WorkerTC = UserDTC.discriminator(WorkerModel, clientTypeConverterOptions);
+export const ClientTC = UserDTC.discriminator(ClientModel);
 
 
