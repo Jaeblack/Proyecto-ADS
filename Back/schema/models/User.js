@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeWithMongooseDiscriminators } from 'graphql-compose-mongoose';
-import BankCard from './BankCard';
+import BankCard from './BankCard.js';
 
 /**
  * Pick a discriminatorKey

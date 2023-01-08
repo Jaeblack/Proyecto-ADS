@@ -1,4 +1,4 @@
-import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC } from './relations';
+import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC } from './relations.js';
   /**
    *  Getting objects after relations are applied
    */

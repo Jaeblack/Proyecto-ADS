@@ -1,6 +1,6 @@
 import { schemaComposer } from 'graphql-compose';
-import queries from './queries';
-import mutations from './mutations';
+import queries from './queries.js';
+import mutations from './mutations.js';
 
 /**
  * Adding the queries and mutations we selected

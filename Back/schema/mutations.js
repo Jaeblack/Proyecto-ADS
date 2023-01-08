@@ -1,7 +1,9 @@
-import { hash, compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
-import { UserModel } from './models/User';
-import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC, CategoryTC } from './relations';
+import bcryptjs from 'bcryptjs';
+const { hash, compare } = bcryptjs;
+import jsonwebtoken from 'jsonwebtoken';
+const { sign } = jsonwebtoken;
+import { UserModel } from './models/User.js';
+import { UserDTC, ClientTC, WorkerTC, ServiceTC, ContractTC, CategoryTC } from './relations.js';
 /**
  *  Getting objects after relations are applied
  */

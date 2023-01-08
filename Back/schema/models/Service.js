@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
 
 const Service = Schema(
@@ -9,10 +9,5 @@ const Service = Schema(
   }
 );
 
-const ServiceModel = mongoose.model('Service', Service);
-const ServiceTC = composeWithMongoose(ServiceModel);
-
-module.exports = {
-    Service: Service,
-    ServiceTC: ServiceTC,
-};
+export const ServiceModel = model('Service', Service);
+export const ServiceTC = composeWithMongoose(ServiceModel);

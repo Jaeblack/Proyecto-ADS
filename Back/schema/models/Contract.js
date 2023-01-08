@@ -16,10 +16,6 @@ const Contract = Schema(
   { timestamps: true },
 );
 
-const ContractModel = model('Contract', Contract);
-const ContractTC = composeWithMongoose(ContractModel);
+export const ContractModel = model('Contract', Contract);
+export const ContractTC = composeWithMongoose(ContractModel);
 
-module.exports = {
-    Contract: Contract,
-    ContractTC: ContractTC,
-};

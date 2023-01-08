@@ -1,16 +1,12 @@
-import { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose } from 'graphql-compose-mongoose';
 
-const Category = Schema(
+const Category = mongoose.Schema(
   {
     name: String,
   }
 );
 
-const CategoryModel = mongoose.model('Category', Category);
-const CategoryTC = composeWithMongoose(CategoryModel);
+export const CategoryModel = mongoose.model('Category', Category);
+export const CategoryTC = composeWithMongoose(CategoryModel);
 
-module.exports = {
-    Category: Category,
-    CategoryTC: CategoryTC,
-};

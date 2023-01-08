@@ -1,38 +1,36 @@
-import { UserDTC, WorkerTC, ClientTC } from './models/User';
-import { CategoryTC } from './models/Category';
-import { ServiceTC } from './models/Service';
-import { ContractTC } from './models/Contract';
-
-
+import { UserDTC, WorkerTC, ClientTC } from "./models/User.js";
+import { CategoryTC } from "./models/Category.js";
+import { ServiceTC } from "./models/Service.js";
+import { ContractTC } from "./models/Contract.js";
 
 /**
  * Worker Relations
  */
-WorkerTC.addRelation('services', {
-  resolver: () => ServiceTC.getResolver('findMany'),
+WorkerTC.addRelation("services", {
+  resolver: () => ServiceTC.getResolver("findMany"),
   prepareArgs: {
     _ids: (worker) => worker.friendsIds,
   },
   projection: { servicesIds: 1 },
 });
 
-WorkerTC.addRelation('contracts', {
-    resolver: () => ContractTC.getResolver('findMany'),
-    prepareArgs: {
-      filter: worker => ({
-        workerId: worker._id,
-      }),
-    },
-    projection: { _id: 1 },
-  });
+WorkerTC.addRelation("contracts", {
+  resolver: () => ContractTC.getResolver("findMany"),
+  prepareArgs: {
+    filter: (worker) => ({
+      workerId: worker._id,
+    }),
+  },
+  projection: { _id: 1 },
+});
 
 /**
  * Client Relations
  */
-ClientTC.addRelation('contracts', {
-  resolver: () => ContractTC.getResolver('findMany'),
+ClientTC.addRelation("contracts", {
+  resolver: () => ContractTC.getResolver("findMany"),
   prepareArgs: {
-    filter: client => ({
+    filter: (client) => ({
       clientId: client._id,
     }),
   },
@@ -42,24 +40,24 @@ ClientTC.addRelation('contracts', {
 /**
  * Service Relations
  */
-ServiceTC.addRelation('category', {
+ServiceTC.addRelation("category", {
   /**
    * Resolver `findOne` has `filter` arg, we may provide mongoose query to it
    */
-  resolver: () => CategoryTC.getResolver('findOne'),
+  resolver: () => CategoryTC.getResolver("findOne"),
   prepareArgs: {
-    filter: service => ({
+    filter: (service) => ({
       _id: service.categoryId,
     }),
   },
   projection: { categoryId: 1 },
 });
 
-ServiceTC.addRelation('contracts', {
-  resolver: () => ContractTC.getResolver('findMany'),
+ServiceTC.addRelation("contracts", {
+  resolver: () => ContractTC.getResolver("findMany"),
   prepareArgs: {
     // resolver `findMany` has `filter` arg, we may provide mongoose query to it
-    filter: service => ({
+    filter: (service) => ({
       serviceId: service._id,
     }),
   },
@@ -70,52 +68,54 @@ ServiceTC.addRelation('contracts', {
  * Category Relations
  */
 
-CategoryTC.addRelation('services', {
-    resolver: () => ServiceTC.getResolver('findMany'),
-    prepareArgs: {
-      filter: category => ({
-        categoryId: category._id,
-      }),
-    },
-    projection: { _id: 1 },
-  });
+CategoryTC.addRelation("services", {
+  resolver: () => ServiceTC.getResolver("findMany"),
+  prepareArgs: {
+    filter: (category) => ({
+      categoryId: category._id,
+    }),
+  },
+  projection: { _id: 1 },
+});
 
 /**
  * Contract Relations
  */
-ContractTC.addRelation('service', {
-  resolver: () => ServiceTC.getResolver('findOne'),
+ContractTC.addRelation("service", {
+  resolver: () => ServiceTC.getResolver("findOne"),
   prepareArgs: {
-    filter: contract => ({
+    filter: (contract) => ({
       _id: contract.serviceId,
     }),
   },
   projection: { serviceId: 1 },
 });
 
-ContractTC.addRelation('client', {
-  resolver: () => ClientTC.getResolver('findOne'),
+ContractTC.addRelation("client", {
+  resolver: () => ClientTC.getResolver("findOne"),
   prepareArgs: {
-    filter: contract => ({
+    filter: (contract) => ({
       _id: contract.clientId,
     }),
   },
   projection: { clientId: 1 },
 });
 
-ContractTC.addRelation('worker', {
-    resolver: () => WorkerTC.getResolver('findOne'),
-    prepareArgs: {
-      filter: contract => ({
-        _id: contract.workerId,
-      }),
-    },
-    projection: { workerId: 1 },
+ContractTC.addRelation("worker", {
+  resolver: () => WorkerTC.getResolver("findOne"),
+  prepareArgs: {
+    filter: (contract) => ({
+      _id: contract.workerId,
+    }),
+  },
+  projection: { workerId: 1 },
 });
 
-export const UserDTC = UserDTC;
-export const ClientTC = ClientTC;
-export const WorkerTC = WorkerTC;
-export const ServiceTC = ServiceTC;
-export const ContractTC = ContractTC;
-export const CategoryTC = CategoryTC;
+export {
+  UserDTC,
+  ClientTC,
+  WorkerTC,
+  ServiceTC,
+  ContractTC,
+  CategoryTC,
+};
