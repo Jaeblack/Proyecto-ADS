@@ -5,6 +5,7 @@ const Service = Schema(
   {
     name: String,
     cost: Number,
+    categoryId: Schema.Types.ObjectId,
   }
 );
 

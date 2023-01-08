@@ -38,7 +38,7 @@ const User = new Schema(
  * Define discriminator schemas
  */
 const Worker = new Schema({
-  //cars: [Car],
+    servicesIds: [Schema.Types.ObjectId],
 });
 
 const Client = new Schema({
