@@ -67,6 +67,20 @@ ServiceTC.addRelation('contracts', {
 });
 
 /**
+ * Category Relations
+ */
+
+CategoryTC.addRelation('services', {
+    resolver: () => ServiceTC.getResolver('findMany'),
+    prepareArgs: {
+      filter: category => ({
+        categoryId: category._id,
+      }),
+    },
+    projection: { _id: 1 },
+  });
+
+/**
  * Contract Relations
  */
 ContractTC.addRelation('service', {
@@ -104,3 +118,4 @@ export const ClientTC = ClientTC;
 export const WorkerTC = WorkerTC;
 export const ServiceTC = ServiceTC;
 export const ContractTC = ContractTC;
+export const CategoryTC = CategoryTC;
