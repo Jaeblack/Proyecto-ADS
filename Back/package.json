@@ -4,11 +4,25 @@
   "description": "back del proyecto de ads",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon ./app"
   },
   "author": "Jose Espinosa",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
-  }
+    "@apollo/server": "^4.3.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-compose": "^9.0.10",
+    "graphql-compose-mongoose": "^9.7.2",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.3",
+    "nodemon": "^2.0.20"
+  },
+  "type": "module"
 }
