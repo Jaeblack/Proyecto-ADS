@@ -1,0 +1,18 @@
+$black:#2C2C2C;
+$dark_gray: #6C6C6C;
+$darklight_gray: #949494;
+$gray: #C2C2C2;
+$light_gray: #EDEDED;
+$white: #F9F9F9;
+
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 350px;
+    min-height: 100vh;
+    background-color: $white;
+}

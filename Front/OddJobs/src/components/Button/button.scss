@@ -1,0 +1,53 @@
+$black:#2C2C2C;
+$dark_gray: #6C6C6C;
+$darklight_gray: #949494;
+$gray: #C2C2C2;
+$light_gray: #EDEDED;
+$white: #F9F9F9;
+
+
+.ButtonPriority, .Button {
+    border-style: none;
+    border-radius: 7px;
+    padding: 5px 15px;
+
+    min-height: 30px;
+    min-width: 125px;
+
+    cursor: pointer;
+
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 28px;
+
+    transition: all 0.25s ease-in-out;
+}
+
+.ButtonPriority {
+    background-color: $black;
+    color: $white;
+}
+
+.ButtonPriority:hover {
+    background-color: $dark_gray;
+}
+
+.ButtonPriority:active {
+    background-color: $darklight_gray;
+    color: $black;
+}
+
+.Button {
+    background-color: $light_gray;
+    color: $black;
+}
+
+.Button:hover {
+    background-color: $gray;
+}
+
+.Button:active {
+    background-color: $darklight_gray;
+}
