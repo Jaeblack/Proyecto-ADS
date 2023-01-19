@@ -11,6 +11,12 @@ $white: #F9F9F9;
     z-index: 100;
 }
 
+.show_form {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
 .login_register_container {
     display: flex;
     justify-content: center;
@@ -19,6 +25,8 @@ $white: #F9F9F9;
     width: 100%;
     z-index: 200;
     background-color: rgba($color: $gray, $alpha: 0.5);
+    transform: scale(0);
+    opacity: 0;
 }
 
 .page_information_conteinar {

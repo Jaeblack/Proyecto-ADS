@@ -1,0 +1,27 @@
+$black:#2C2C2C;
+$dark_gray: #6C6C6C;
+$darklight_gray: #949494;
+$gray: #C2C2C2;
+$light_gray: #EDEDED;
+$white: #F9F9F9;
+
+.worker_small_data_container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin: 0 100px;
+    border: solid 3px rgba($color: $black, $alpha: 0.3);
+
+    p {
+        font-size: 23px;
+        max-width: 250px;
+        margin: 9px;
+    }
+
+    .evaluation_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}

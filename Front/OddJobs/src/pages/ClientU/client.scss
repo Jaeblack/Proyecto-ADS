@@ -1,0 +1,90 @@
+$black:#2C2C2C;
+$dark_gray: #6C6C6C;
+$darklight_gray: #949494;
+$gray: #C2C2C2;
+$light_gray: #EDEDED;
+$white: #F9F9F9;
+
+.settings_icon {
+    $imgsize: 25px;
+    width: $imgsize;
+    height: $imgsize;
+}
+
+img {
+    cursor: pointer;
+}
+
+// p.bottom_bar::before {
+//     content: "";
+//     height: 60px;
+//     width: 60px;
+//     background-color: $black;
+//     border: 20px;
+// }
+
+p.bottom_bar::before {
+    content: "";
+    position: absolute;
+    height: 6px;
+    transform: translate(0, 30px);
+    background-color: $black;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.first_option::before {
+    width: 110px;
+}
+
+.second_option::before {
+    width: 128px;
+}
+
+.third_option::before {
+    width: 105px;
+}
+
+.client_data_container {
+    height: 100vh;
+    filter: blur(0);
+    transition: all 0.2s ease-in-out;
+
+    .contracts_information_container {
+        height: 90vh;
+    
+        .contracts_options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            padding: 0 50px;
+            height: 10%;
+
+            .options {
+                display: flex;
+                gap: 45px;
+                font-size: 25px;
+
+                p {
+                    margin: 10px 0;
+                    cursor: pointer;
+                }
+            }
+
+            .create_contract_button {
+                font-size: 20px;
+                width: 200px;
+            }
+        }
+    
+        .contracts_information {
+            display: flex;
+            flex-wrap: wrap;
+            order: 3;
+            padding: 0 100px;
+            overflow-y: scroll;
+            height: 80%;
+        }
+    }
+}

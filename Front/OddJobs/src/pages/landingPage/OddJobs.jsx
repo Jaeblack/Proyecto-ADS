@@ -45,7 +45,7 @@ export function OddJobs() {
   return (
     <>
       {isGettinInto ? (
-        <div className="login_register_container">
+        <div className={`login_register_container ${isGettinInto ? "show_form" : ''}`}>
           <GetinForm />
         </div>
       ) : (
@@ -115,7 +115,6 @@ export function OddJobs() {
             <div
               className="employee_option"
               onClick={() => {
-                console.log("Se hizo click");
                 disableLandingPage();
               }}
             >
@@ -125,7 +124,6 @@ export function OddJobs() {
             <div
               className="client_option"
               onClick={() => {
-                console.log("Se hizo click");
                 disableLandingPage();
               }}
             >
